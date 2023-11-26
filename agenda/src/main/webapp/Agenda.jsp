@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ page import="model.JavaBeans"%>
+<%@ page import="Model.JavaBeans"%>
 <%@ page import="java.util.ArrayList"%>
 <%
 		ArrayList<JavaBeans> lista = (ArrayList<JavaBeans>) request.getAttribute("contatos");	
@@ -29,6 +29,8 @@
 		</thead>
 		
 		<tbody>
+	
+		<% if (lista != null) { %>
 			<%for(int i = 0; i < lista.size(); i++){%>
 				<tr>
 					<td><%=lista.get(i).getIdcon()%></td>
@@ -40,6 +42,10 @@
 					</td>
 				</tr>
 				<%}%>
+				<% } else { %>
+   				<h1>A lista está nula.</h1> 
+			<% } %>
+				
 		</tbody>
 	</table>
 	<script src="Script/Confirmador.js"></script>
